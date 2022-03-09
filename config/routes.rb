@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user_show'
   patch 'users/:id', to: 'users#update', as: 'user_update'
   put 'users/:id', to: 'users#update', as: 'user_update_put'
-  delete 'users/:id', to: 'users#destroy', as: 'user_delete'
+  delete 'users/:id', to: 'users#destroy', as: 'user_deletegi'
 end
