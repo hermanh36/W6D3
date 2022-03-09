@@ -30,4 +30,8 @@ class UsersController < ApplicationController
         end
     end
 
+    def destroy
+        render json: User.find(params[:id]).destroy
+    end
+
 end
