@@ -9,14 +9,17 @@ class Artwork < ApplicationRecord
         foreign_key: :artist_id,
         class_name: :User
 
-    has_one :artwork_share,
+    has_one :artwork_shares,
         primary_key: :id,
         foreign_key: :artwork_id,
         class_name: :ArtworkShare
 
     has_many :shared_viewers,
-        through: :artwork_share,
+        through: :artwork_shares,
         source: :viewer
 
+    def self.owned_and_shared(user_id)
+        Artwork.left_outer_joins(:artwork_shares).where('artist_id = :user_id OR viewer_id = :user_id', user_id: user_id).distinct
+    end
 
 end
