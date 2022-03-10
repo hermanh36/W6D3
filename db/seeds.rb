@@ -28,3 +28,5 @@
     ArtworkShare.create({artwork_id:artwork_4.id,viewer_id:user_3.id})
     ArtworkShare.create({artwork_id:artwork_5.id,viewer_id:user_2.id})
 
+    
+

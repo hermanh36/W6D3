@@ -18,4 +18,13 @@ class User < ApplicationRecord
         through: :artwork_share,
         source: :artwork,
         dependent: :destroy
+
+    has_many :comments_made,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Comment,
+        dependent: :destroy
+
+    
+
 end

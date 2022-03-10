@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   end
   resources :artworks, only:[:index,:create,:show,:update,:destroy]
   resources :artwork_shares, only:[:index,:create,:destroy]
+  resources :comments, only:[:create,:destroy]
+  get 'comments/:user_id', to: 'comments#index'
+  get 'comments/:artist_id', to: 'comments#index'
   # get 'users/', to: 'users#index', as: 'user'
   # post 'users/', to: 'users#create', as: 'user_create'
   # get 'users/new', to: 'users#new', as: 'user_new'
